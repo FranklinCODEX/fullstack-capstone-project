@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const pinoLogger = require('./logger');
+const giftRoutes = require('./routes/giftRoutes');
 
 const connectToDatabase = require('./models/db');
 const {loadData} = require("./util/import-mongo/index");
@@ -36,7 +37,7 @@ app.use(pinoHttp({ logger }));
 
 // Use Routes
 // Gift API Task 2: add the giftRoutes to the server by using the app.use() method.
-//{{insert code here}}
+app.use('/api/gifts', giftRoutes);
 
 // Search API Task 2: add the searchRoutes to the server by using the app.use() method.
 //{{insert code here}}
